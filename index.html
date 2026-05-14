@@ -1409,27 +1409,36 @@
 
 
     <!-- Initialisation Firebase -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyDoTBDj9yXk7nx2megfPVS4GGOni8RI6wo",
-            authDomain: "special-warfare-i-zdops.firebaseapp.com",
-            databaseURL: "https://special-warfare-i-zdops-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "special-warfare-i-zdops",
-            storageBucket: "special-warfare-i-zdops.firebasestorage.app",
-            messagingSenderId: "630945412409",
-            appId: "1:630945412409:web:435d82f2daec40389364e8",
-            measurementId: "G-DN0XKH9K20"
-        };
+    const firebaseConfig = {
+        apiKey: "AIzaSyDoTBDj9yXk7nx2megfPVS4GGOni8RI6wo",
+        authDomain: "special-warfare-i-zdops.firebaseapp.com",
+        databaseURL: "https://special-warfare-i-zdops-default-rtdb.europe-west1.firebasedatabase.app/",
+        projectId: "special-warfare-i-zdops",
+        storageBucket: "special-warfare-i-zdops.firebasestorage.app",
+        messagingSenderId: "630945412409",
+        appId: "1:630945412409:web:435d82f2daec40389364e8",
+        measurementId: "G-DN0XKH9K20"
+    };
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        
-        console.log("SGM : Liaison Firebase établie.");
-    </script>
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    console.log("SGM : Liaison Firebase établie.");
+
+    // --- RÉPARE L'ACCÈS AUX FONCTIONS ---
+    // En type="module", les fonctions globales disparaissent. 
+    // Ces lignes les "re-publient" pour que tes boutons onclick refonctionnent.
+    if (typeof register !== 'undefined') window.register = register;
+    if (typeof initAccounts !== 'undefined') {
+        window.initAccounts = initAccounts;
+        window.initAccounts(); // Lance la création des comptes RTX/ADMIN
+    }
+</script>
 
     <script>
         // ═══════════════════════════════════════════════════════════
