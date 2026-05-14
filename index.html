@@ -1032,8 +1032,8 @@
     <!-- ── AUTH ──────────────────────────────────── -->
     <div id="auth-section">
         <div class="auth-logo">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-▓  SGM · SECURE LINK  ▓
-▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</div>
+            ▓ SGM · SECURE LINK ▓
+            ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</div>
         <h2>IDENTIFICATION</h2>
         <input type="text" id="username" class="auth-input" placeholder="NOM DE CODE"
             onkeydown="if(event.key==='Enter') register()">
@@ -1100,8 +1100,10 @@
                         </button>
                     </div>
 
-                    <div style="margin-top: 60px; border-top: 1px solid var(--border); padding-top: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
-                        <h2 style="font-family: var(--font-mono); font-size: 1rem; color: var(--green); letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase;">
+                    <div
+                        style="margin-top: 60px; border-top: 1px solid var(--border); padding-top: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                        <h2
+                            style="font-family: var(--font-mono); font-size: 1rem; color: var(--green); letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase;">
                             État de Service des Unités
                         </h2>
                         <div id="home-participation-summary"></div>
@@ -1136,8 +1138,10 @@
 
 
                         <div style="margin-top:16px; display: flex; gap: 10px;">
-                            <button id="btn-launch" onclick="toggleMission()" class="btn-red" style="flex: 2;">LANCER L'OPÉRATION</button>
-                            <button onclick="confirmAction('Réinitialiser tous les champs ?', resetOpSheet)" class="btn-muted" style="flex: 1; font-size: 0.65rem;">RESET FICHE</button>
+                            <button id="btn-launch" onclick="toggleMission()" class="btn-red" style="flex: 2;">LANCER
+                                L'OPÉRATION</button>
+                            <button onclick="confirmAction('Réinitialiser tous les champs ?', resetOpSheet)"
+                                class="btn-muted" style="flex: 1; font-size: 0.65rem;">RESET FICHE</button>
                         </div>
                     </div>
                 </div>
@@ -1316,14 +1320,18 @@
 
                     <div class="history-container" style="margin-top: 30px;">
                         <h3>Statistiques de Participation</h3>
-                        <div id="participation-summary" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-bottom: 25px;"></div>
+                        <div id="participation-summary"
+                            style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-bottom: 25px;">
+                        </div>
 
                         <h3>Archives des Missions Précédentes</h3>
                         <div id="rapport-history-list"></div>
                         <div style="display: flex; gap: 10px; margin-top: 10px;">
-                            <button onclick="confirmAction('Vider toutes les archives de rapports ?', clearRapportHistory)"
+                            <button
+                                onclick="confirmAction('Vider toutes les archives de rapports ?', clearRapportHistory)"
                                 class="btn-sm btn-muted">Vider toutes les archives</button>
-                            <button onclick="confirmAction('Remettre à zéro les compteurs de participation ? (L\'historique sera conservé)', resetParticipationStats)"
+                            <button
+                                onclick="confirmAction('Remettre à zéro les compteurs de participation ? (L\'historique sera conservé)', resetParticipationStats)"
                                 class="btn-sm btn-red">Réinitialiser les Compteurs</button>
                         </div>
                     </div>
@@ -1409,62 +1417,160 @@
 
 
     <!-- Initialisation Firebase -->
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyDoTBDj9yXk7nx2megfPVS4GGOni8RI6wo",
-        authDomain: "special-warfare-i-zdops.firebaseapp.com",
-        databaseURL: "https://special-warfare-i-zdops-default-rtdb.europe-west1.firebasedatabase.app/",
-        projectId: "special-warfare-i-zdops",
-        storageBucket: "special-warfare-i-zdops.firebasestorage.app",
-        messagingSenderId: "630945412409",
-        appId: "1:630945412409:web:435d82f2daec40389364e8"
-    };
+        const firebaseConfig = {
+            apiKey: "AIzaSyDoTBDj9yXk7nx2megfPVS4GGOni8RI6wo",
+            authDomain: "special-warfare-i-zdops.firebaseapp.com",
+            databaseURL: "https://special-warfare-i-zdops-default-rtdb.europe-west1.firebasedatabase.app/",
+            projectId: "special-warfare-i-zdops",
+            storageBucket: "special-warfare-i-zdops.firebasestorage.app",
+            messagingSenderId: "630945412409",
+            appId: "1:630945412409:web:435d82f2daec40389364e8"
+        };
 
-    // Initialisation
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
+        // Initialisation
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
 
-    console.log("SGM : Envoi des comptes vers Firebase...");
+        console.log("SGM : Envoi des comptes vers Firebase...");
 
-    // Cette fonction va écrire dans ton onglet "Données"
-    function syncAccountsToFirebase() {
-        const accounts = [
-            {
-                user: 'ADMIN',
-                pass: 'SW59',
-                perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
-            },
-            {
-                user: 'RTX',
-                pass: 'rtx',
-                perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports']
-            },
-            {
-                user: 'test',
-                pass: 'azerty',
-                perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports']
-            },
-            
-        ];
+        function syncAccountsToFirebase() {
+            const accounts = [
+                {
+                    user: 'ADMIN',
+                    pass: 'SW59',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
+                },
+                {
+                    user: 'Condor',
+                    pass: 'SW16',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
+                },
+                {
+                    user: 'Rook',
+                    pass: 'SW17',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
+                },
+                {
+                    user: 'Falcon',
+                    pass: 'SW18',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
+                },
+                {
+                    user: 'Swift',
+                    pass: 'SW19',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
+                },
+                {
+                    user: 'Raven',
+                    pass: 'SW20',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Starling',
+                    pass: 'SW21',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Gosthawk',
+                    pass: 'SW22',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Blackbird',
+                    pass: 'SW23',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Canari',
+                    pass: 'SW24',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Eagle',
+                    pass: 'SW25',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Hawk',
+                    pass: 'SW26',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Parrot',
+                    pass: 'SW27',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Sparrow',
+                    pass: 'SW28',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Skua',
+                    pass: 'SW29',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Crayne',
+                    pass: 'SW30',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Willet',
+                    pass: 'SW31',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Redwing',
+                    pass: 'SW32',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Emu',
+                    pass: 'SW33',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Loon',
+                    pass: 'SW34',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Stork',
+                    pass: 'SW35',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Kite',
+                    pass: 'SW36',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
+                },
+                {
+                    user: 'Viper',
+                    pass: 'SW37',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
+                }
+            ];
 
-        // On envoie les données vers le dossier "military_accounts" dans Firebase
-        set(ref(db, 'military_accounts'), accounts)
-            .then(() => console.log("Données synchronisées sur Firebase !"))
-            .catch((error) => console.error("Erreur Firebase :", error));
-    }
+            // On envoie les données vers Firebase
+            set(ref(db, 'military_accounts'), accounts)
+                .then(() => console.log("Données synchronisées sur Firebase !"))
+                .catch((error) => console.error("Erreur Firebase :", error));
+        }
 
-    // Exécution et Export
-    syncAccountsToFirebase();
+        // Exécution et Export
+        syncAccountsToFirebase();
 
-    if (typeof register !== 'undefined') window.register = register;
-    if (typeof initAccounts !== 'undefined') {
-        window.initAccounts = initAccounts;
-        window.initAccounts(); 
-    }
-</script>
+        if (typeof register !== 'undefined') window.register = register;
+        if (typeof initAccounts !== 'undefined') {
+            window.initAccounts = initAccounts;
+            window.initAccounts();
+        }
+    </script>
 
     <script>
         // ═══════════════════════════════════════════════════════════
@@ -1552,28 +1658,37 @@
         // ═══════════════════════════════════════════════════════════
         // ── Comptes (Nouveauté V4.0) ────────────────────────────
         function initAccounts() {
-    let accounts = JSON.parse(localStorage.getItem('military_accounts')) || [];
-    
-    // Garantir que ADMIN existe toujours comme accès maître
-    if (!accounts.find(a => a.user === 'ADMIN')) {
-        accounts.push({
-            user: 'ADMIN',
-            pass: 'SW59',
-            perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
-        });
-    }
+            let accounts = JSON.parse(localStorage.getItem('military_accounts')) || [];
 
-    // Correction ici : Ajout du "if" manquant et fermeture correcte des blocs
-    if (!accounts.find(a => a.user === 'RTX')) {
-        accounts.push({
-            user: 'RTX',
-            pass: 'rtx',
-            perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports']
-        });
-    }
+            // Garantir que ADMIN existe toujours comme accès maître
+            if (!accounts.find(a => a.user === 'ADMIN')) {
+                accounts.push({
+                    user: 'ADMIN',
+                    pass: 'SW59',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
+                });
+            }
 
-    localStorage.setItem('military_accounts', JSON.stringify(accounts));
-}
+            // Correction ici : Ajout du "if" manquant et fermeture correcte des blocs
+            if (!accounts.find(a => a.user === 'RTX')) {
+                accounts.push({
+                    user: 'RTX',
+                    pass: 'rtx',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports']
+                });
+            }
+
+            // AJOUT: Compte TEST pour qu'il soit bien créé en local
+            if (!accounts.find(a => a.user === 'TEST')) {
+                accounts.push({
+                    user: 'TEST',
+                    pass: 'azerty',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports']
+                });
+            }
+
+            localStorage.setItem('military_accounts', JSON.stringify(accounts));
+        }
 
         function register() {
             const userField = document.getElementById('username');
@@ -1792,7 +1907,7 @@
 
             if (!missionActive) {
                 chatSystem(`${esc(user)} A TERMINÉ L'OPÉRATION. Unités démobilisées.`, 'var(--orange)');
-                
+
                 // Sauvegarder les données pour le rapport avant de réinitialiser
                 const reportData = {
                     name: document.getElementById('op-name').value,
@@ -1803,7 +1918,7 @@
                 localStorage.setItem('pending_report_data', JSON.stringify(reportData));
 
                 // Remise à zéro automatique de la fiche (UI)
-                resetOpSheet(false); 
+                resetOpSheet(false);
             } else {
                 localStorage.removeItem('pending_report_data');
                 localStorage.removeItem('rapport_notes');
@@ -1817,7 +1932,7 @@
         function updateUIMissionState() {
             document.getElementById('status-banner').style.display = missionActive ? 'block' : 'none';
             document.getElementById('active-mission-alert').style.display = missionActive ? 'block' : 'none';
-            
+
             const btn = document.getElementById('btn-launch');
             btn.textContent = missionActive ? 'TERMINER L\'OPÉRATION' : 'LANCER L\'OPÉRATION';
             btn.className = missionActive ? 'btn-muted' : 'btn-red';
@@ -2250,7 +2365,7 @@
         function updateParticipationSummary() {
             const containerHome = document.getElementById('home-participation-summary');
             const containerRapport = document.getElementById('participation-summary');
-            
+
             const stats = getParticipationStats();
             const entries = Object.entries(stats).sort((a, b) => b[1].count - a[1].count);
 
