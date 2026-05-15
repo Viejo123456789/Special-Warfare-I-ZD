@@ -1444,116 +1444,7 @@
                     pass: 'SW59',
                     perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
                 },
-                {
-                    user: 'Condor',
-                    pass: 'SW16',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
-                },
-                {
-                    user: 'Rook',
-                    pass: 'SW17',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
-                },
-                {
-                    user: 'Falcon',
-                    pass: 'SW18',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
-                },
-                {
-                    user: 'Swift',
-                    pass: 'SW19',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
-                },
-                {
-                    user: 'Raven',
-                    pass: 'SW20',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Starling',
-                    pass: 'SW21',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Gosthawk',
-                    pass: 'SW22',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Blackbird',
-                    pass: 'SW23',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Canari',
-                    pass: 'SW24',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Eagle',
-                    pass: 'SW25',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Hawk',
-                    pass: 'SW26',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Parrot',
-                    pass: 'SW27',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Sparrow',
-                    pass: 'SW28',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Skua',
-                    pass: 'SW29',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Crayne',
-                    pass: 'SW30',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Willet',
-                    pass: 'SW31',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Redwing',
-                    pass: 'SW32',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Emu',
-                    pass: 'SW33',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Loon',
-                    pass: 'SW34',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Stork',
-                    pass: 'SW35',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Kite',
-                    pass: 'SW36',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                },
-                {
-                    user: 'Viper',
-                    pass: 'SW37',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport']
-                }
+
             ];
 
             // On envoie les données vers Firebase
@@ -1670,22 +1561,38 @@
             }
 
             // Correction ici : Ajout du "if" manquant et fermeture correcte des blocs
-            if (!accounts.find(a => a.user === 'RTX')) {
+            if (!accounts.find(a => a.user === 'Falcon')) {
                 accounts.push({
-                    user: 'RTX',
-                    pass: 'rtx',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports']
+                    user: 'Falcon',
+                    pass: 'SW18',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
                 });
             }
 
             // AJOUT: Compte TEST pour qu'il soit bien créé en local
-            if (!accounts.find(a => a.user === 'TEST')) {
+            if (!accounts.find(a => a.user === 'Condor')) {
                 accounts.push({
-                    user: 'TEST',
-                    pass: 'azerty',
-                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports']
+                    user: 'Condor',
+                    pass: 'SW19',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
                 });
             }
+
+            if (!accounts.find(a => a.user === 'Rook')) {
+                accounts.push({
+                    user: 'Rook',
+                    pass: 'SW20',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
+                });
+            }
+
+            if (!accounts.find(a => a.user === 'Swift')) {
+                accounts.push({
+                    user: 'Swift',
+                    pass: 'SW21',
+                    perms: ['accueil', 'operation', 'rs', 'zd', 'timer', 'rapport', 'identification', 'alert_manage', 'delete_entries', 'delete_reports', 'reset_list', 'reset_participation']
+                });
+            
 
             localStorage.setItem('military_accounts', JSON.stringify(accounts));
         }
